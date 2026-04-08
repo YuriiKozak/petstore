@@ -11,15 +11,18 @@ repositories {
 }
 
 dependencies {
-    implementation 'io.rest-assured:rest-assured:6.0.0'
-    implementation 'com.codeborne:selenide:7.14.0'
-    implementation 'com.microsoft.playwright:playwright:1.58.0'
-    implementation 'com.fasterxml.jackson.core:jackson-databind:2.21.1'
-    implementation 'org.aeonbits.owner:owner:1.0.12'
-    implementation 'org.slf4j:slf4j-simple:2.0.17'
+    implementation(
+            'io.rest-assured:rest-assured:6.0.0',
+            'com.fasterxml.jackson.core:jackson-databind:2.21.1',
+            'org.slf4j:slf4j-simple:2.0.17'
+    )
 
-    testImplementation 'org.assertj:assertj-core:3.27.7'
-    testImplementation 'org.junit.jupiter:junit-jupiter:6.0.3'
+    testImplementation(
+            'org.junit.jupiter:junit-jupiter:6.0.3',
+            'org.assertj:assertj-core:3.27.7',
+            'com.github.javafaker:javafaker:1.0.2'
+    )
+
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
