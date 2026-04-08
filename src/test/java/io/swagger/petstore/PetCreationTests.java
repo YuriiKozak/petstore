@@ -12,8 +12,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class PetCreationTests extends BaseTest {
 
     @Test
-    @DisplayName("Create pet")
-    public void createPet() {
+    @DisplayName("Create pet test")
+    public void createPetTest() {
         final PetDto petRequest = generateRandomPet();
 
         petController

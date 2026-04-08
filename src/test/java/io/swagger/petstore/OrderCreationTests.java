@@ -14,8 +14,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class OrderCreationTests extends BaseTest {
 
     @Test
-    @DisplayName("Create order")
-    public void createOrder() {
+    @DisplayName("Create order test")
+    public void createOrderTest() {
         final OrderDto orderRequest = generateRandomOrder();
 
         storeController

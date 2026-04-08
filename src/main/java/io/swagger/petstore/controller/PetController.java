@@ -1,5 +1,6 @@
 package io.swagger.petstore.controller;
 
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.swagger.petstore.dto.PetDto;
 
@@ -41,7 +42,7 @@ public class PetController extends BaseController {
 
     public Response updatePetWithForm(final long petId, final String name, final String status) {
         return getRequestSpecification()
-                .contentType("application/x-www-form-urlencoded")
+                .contentType(ContentType.URLENC)
                 .formParam("name", name)
                 .formParam("status", status)
                 .pathParam("petId", petId)
