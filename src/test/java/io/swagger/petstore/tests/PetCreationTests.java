@@ -1,12 +1,12 @@
-package io.swagger.petstore;
+package io.swagger.petstore.tests;
 
-import com.github.javafaker.Faker;
 import io.swagger.petstore.dto.PetDto;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
+import java.io.File;
 
+import static io.swagger.petstore.utils.TestDataGenerator.generateRandomPet;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class PetCreationTests extends BaseTest {
@@ -33,14 +33,24 @@ public class PetCreationTests extends BaseTest {
         assertThat(petResponse).isEqualTo(petRequest);
     }
 
-    private PetDto generateRandomPet() {
-        final Faker faker = new Faker();
+    @Test
+    @DisplayName("Upload image test")
+    public void uploadImageTest() {
+        final PetDto petRequest = generateRandomPet();
 
-        return new PetDto()
-                .setId(faker.number().randomNumber())
-                .setName(faker.animal().name())
-                .setPhotoUrls(List.of(faker.internet().url()))
-                .setStatus(PetDto.Status.available);
+        petController
+                .addPet(petRequest)
+                .then()
+                .assertThat()
+                .statusCode(200);
+
+        final File imageFile = new File("src/test/resources/images/cat.png");
+
+        petController
+                .uploadFile(petRequest.getId(), "test", imageFile)
+                .then()
+                .assertThat()
+                .statusCode(200);
     }
 
 }

@@ -10,6 +10,7 @@ public class PetController extends BaseController {
 
     public Response uploadFile(final long petId, final String additionalMetadata, final File file) {
         return getRequestSpecification()
+                .contentType(ContentType.MULTIPART)
                 .multiPart("additionalMetadata", additionalMetadata)
                 .multiPart("file", file)
                 .pathParam("petId", petId)

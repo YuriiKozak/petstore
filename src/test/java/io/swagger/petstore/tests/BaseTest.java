@@ -1,4 +1,4 @@
-package io.swagger.petstore;
+package io.swagger.petstore.tests;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;

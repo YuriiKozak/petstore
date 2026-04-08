@@ -1,10 +1,10 @@
-package io.swagger.petstore;
+package io.swagger.petstore.tests;
 
-import com.github.javafaker.Faker;
 import io.swagger.petstore.dto.UserDto;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static io.swagger.petstore.utils.TestDataGenerator.generateRandomUser;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class UserCreationTests extends BaseTest {
@@ -39,20 +39,6 @@ public class UserCreationTests extends BaseTest {
                 .asString();
 
         System.out.println(session);
-    }
-
-    private UserDto generateRandomUser() {
-        final Faker faker = new Faker();
-
-        return new UserDto()
-                .setId(faker.number().randomNumber())
-                .setUsername(faker.name().username())
-                .setFirstName(faker.name().firstName())
-                .setLastName(faker.name().lastName())
-                .setEmail(faker.internet().emailAddress())
-                .setPassword(faker.internet().password())
-                .setPhone(faker.phoneNumber().cellPhone())
-                .setUserStatus(faker.number().numberBetween(0, 1));
     }
 
 }
