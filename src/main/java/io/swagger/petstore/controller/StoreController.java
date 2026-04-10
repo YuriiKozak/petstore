@@ -3,7 +3,7 @@ package io.swagger.petstore.controller;
 import io.restassured.response.Response;
 import io.swagger.petstore.dto.OrderDto;
 
-public class StoreController extends BaseController {
+public class StoreController extends BaseController<StoreController> {
 
     public Response getInventory() {
         return getRequestSpecification()

@@ -5,7 +5,7 @@ import io.swagger.petstore.dto.UserDto;
 
 import java.util.List;
 
-public class UserController extends BaseController {
+public class UserController extends BaseController<UserController> {
 
     public Response createUser(final UserDto userDto) {
         return getRequestSpecification()

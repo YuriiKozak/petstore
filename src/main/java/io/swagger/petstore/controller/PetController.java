@@ -6,7 +6,7 @@ import io.swagger.petstore.dto.PetDto;
 
 import java.io.File;
 
-public class PetController extends BaseController {
+public class PetController extends BaseController<PetController> {
 
     public Response uploadFile(final long petId, final String additionalMetadata, final File file) {
         return getRequestSpecification()
